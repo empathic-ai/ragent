@@ -1,3 +1,3 @@
 <p align="center">
-    <img src="icon.png" width="500" alt="Icon">
+    <img src="splash.png" alt="Splash">
 </p>
