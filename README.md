@@ -15,7 +15,7 @@ A Rust-based framework for agents--designed for multimodal, multi-agent workflow
 Voice transcription:
 - [Deepgram](https://deepgram.com/)
     
-LLMs:
+Chat Models:
 - [ChatGPT](https://openai.com/blog/chatgpt)
 
 Speech synthesis:
