@@ -9,4 +9,4 @@
 </div>
 
 # Ragent
-A Rust-based framework for agents--designed with a deep focus on ease-of-use and performance in the cloud, on the web and on embedded devices for real-time, multimodal, multi-agent interactions.
+A Rust-based framework for agents--designed with a particular focus on ease-of-use and performance in the cloud, on the web and on embedded devices for real-time, multimodal, multi-agent interactions.
