@@ -10,3 +10,15 @@
 
 # Ragent
 A Rust-based framework for agents--designed for multimodal, multi-agent workflows with maximal performance in the cloud, on the web and on embedded devices.
+
+# Integrations
+Voice transcription:
+- [Deepgram](https://deepgram.com/)
+    
+LLMs:
+- [ChatGPT](https://openai.com/blog/chatgpt)
+
+Speech synthesis:
+- [Microsoft Azure](https://azure.microsoft.com/en-us/products/cognitive-services/text-to-speech/)
+- [Play.ht](https://play.ht)
+- [Eleven Labs](https://elevenlabs.io/)
