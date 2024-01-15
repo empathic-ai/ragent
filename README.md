@@ -9,7 +9,21 @@
 </div>
 
 # Ragent
-A Rust-based framework for agents--designed for multimodal, multi-agent workflows with maximal performance in the cloud, on the web and on embedded devices.
+An open-source Rust-based framework for agents--designed for multimodal, multi-agent workflows with maximal performance in the cloud, on the web and on embedded devices.
+
+# Usage
+
+```Rust
+let config = AgentConfig::new(
+    "Butter Robot",
+    "You pass butter.",
+    vec![
+        TaskConfig::new::<SpeakEventArgs>(true)
+    ]
+);
+
+ChatGPTAgent::new(config)
+```
 
 # Integrations
 Voice transcription:
