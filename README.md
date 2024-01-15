@@ -8,4 +8,5 @@
     <a href="https://azure.microsoft.com"><img height=30em src="https://img.shields.io/badge/Azure-%2320232a?style=for-the-badge&logo=microsoftazure&logoColor=0078D4&color=141414"></a>
 </div>
 
-A Rust-based framework for agents, designed for maximal performance in the cloud, on the web and in embedded systems.
+
+A Rust-based framework for agents--designed for maximal performance in the cloud, on the web and on embedded devices.
