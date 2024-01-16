@@ -9,7 +9,7 @@
 </div>
 
 # Ragent
-An open-source Rust-based framework for agents--designed for real-time, multimodal, multi-agent workflows for cloud-based, web, desktop, mobile and embedded environments.
+An open-source Rust-based framework for agents--designed for real-time, multimodal, multi-agent workflows for the web, mobile devices, the cloud and embedded environments.
 
 # Usage
 
