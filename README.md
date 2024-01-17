@@ -36,3 +36,8 @@ Speech synthesis:
 - [Microsoft Azure](https://azure.microsoft.com/en-us/products/cognitive-services/text-to-speech/)
 - [Play.ht](https://play.ht)
 - [Eleven Labs](https://elevenlabs.io/)
+
+# Roadmap
+
+- Add simple chat example.
+- Add 2D example including multiple social agents.
