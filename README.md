@@ -40,4 +40,4 @@ Speech synthesis:
 # Roadmap
 
 - Add simple chat example.
-- Add 2D example including multiple social agents.
+- Add 2D simulation example including multiple social agents.
