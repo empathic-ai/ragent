@@ -39,5 +39,5 @@ Speech synthesis:
 
 # Roadmap
 
-- Add simple chat example.
-- Add 2D simulation example including multiple social agents.
+- Add simple chat demo.
+- Add 2D simulation demo, including multiple social agents.
