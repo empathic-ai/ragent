@@ -25,7 +25,7 @@ let config = AgentConfig::new(
     ]
 );
 
-ChatGPTAgent::new(config)
+ChatGPTAgent::new(config);
 ```
 
 # Integrations
