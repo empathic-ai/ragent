@@ -1,1 +1,0 @@
-{"rustc":5138771956641494191,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[5363461401790668953,"build_script_build",false,1001608510598719579]],"local":[{"RerunIfChanged":{"output":"x86_64-apple-darwin/debug/build/ragent-061ac3f41026a35c/output","paths":["proto/agents.proto","proto"]}}],"rustflags":[],"metadata":0,"config":0,"compile_kind":0}
