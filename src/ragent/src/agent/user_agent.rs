@@ -1,4 +1,4 @@
-use transcriber::Transcriber;
+use ragent_transcribers::Transcriber;
 use uuid::Uuid;
 
 pub struct UserAgent {

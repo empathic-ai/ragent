@@ -4,12 +4,12 @@ use futures_util::lock::Mutex;
 use openai_api_rs::v1::api::Client;
 use openai_api_rs::v1::chat_completion::*;
 use openai_api_rs::v1::fine_tune::ModelDetails;
-use synthesizer::Synthesizer;
+//use synthesizer::Synthesizer;
 use async_trait::async_trait;
-use synthesizer::azure_tts::AzureSynthesizer;
-use synthesizer::eleven_labs::ElevenLabsSynthesizer;
-use transcriber::Transcriber;
-use transcriber::deepgram_transcriber::DeepgramTranscriber;
+//use synthesizer::azure_tts::AzureSynthesizer;
+//use synthesizer::eleven_labs::ElevenLabsSynthesizer;
+//use transcriber::Transcriber;
+//use transcriber::deepgram_transcriber::DeepgramTranscriber;
 use uuid::Uuid;
 use crate::prelude::*;
 use std::*;
@@ -126,7 +126,7 @@ impl ChatGPTAgent {
         
         let mut transcriber = DeepgramTranscriber::new_from_env();
 
-        let (transcriber_input_tx, transcriber_input_rx) = transcriber::channel();
+        let (transcriber_input_tx, transcriber_input_rx) = ragent_transcribers::channel();
 
         let _input_tx = input_tx.clone();
         let task = tokio::task::spawn(async move {

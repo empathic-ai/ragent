@@ -2,14 +2,14 @@ use std::{sync::Arc, fmt::Debug};
 
 use crate::prelude::*;
 
+use ragent_core::prelude;
+
 use bevy::{prelude::*, reflect::{Typed, ReflectRef, TypeInfo, ReflectMut, DynamicStruct}, utils::HashMap};
 use bytes::Bytes;
 use serde::*;
 use uuid::Uuid;
 use time::SystemTime;
 use documented::Documented;
-use ragent::prelude::Task;
-use ragent_derive::Task;
 use anyhow::Result;
 use anyhow::anyhow;
 use common::prelude::*;
