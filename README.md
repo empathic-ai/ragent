@@ -45,3 +45,4 @@ Speech synthesis:
 
 - Add simple chat demo.
 - Add 2D simulation demo, including multiple social agents.
+- Add local integrations using [Candle](https://github.com/huggingface/candle) or something similar.
