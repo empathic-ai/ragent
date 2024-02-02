@@ -2,6 +2,7 @@
 resolver = "2"
 
 members = [
+    "packages/deps/ragent",
     "packages/deps/ragent_core",
     "packages/deps/ragent_derive",
     "packages/deps/ragent_image_generators",

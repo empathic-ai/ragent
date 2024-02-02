@@ -3,7 +3,7 @@ extern crate syn;
 #[macro_use]
 extern crate quote;
 
-use ragent::prelude::*;
+use ragent_core::prelude::*;
 use proc_macro::TokenStream;
 
 #[proc_macro_derive(Task)]

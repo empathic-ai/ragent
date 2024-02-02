@@ -1,5 +1,5 @@
 [package]
-name = "synthesizer"
+name = "ragent_synthesizers"
 version = "0.5.1"
 authors = []
 edition = "2021"

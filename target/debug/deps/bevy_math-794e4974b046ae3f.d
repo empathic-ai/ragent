@@ -1,0 +1,11 @@
+/Users/jake/Desktop/empathic/ragent/target/debug/deps/libbevy_math-794e4974b046ae3f.rmeta: /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/lib.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/cubic_splines.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/ray.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/mod.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/irect.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/rect.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/urect.rs
+
+/Users/jake/Desktop/empathic/ragent/target/debug/deps/bevy_math-794e4974b046ae3f.d: /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/lib.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/cubic_splines.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/ray.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/mod.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/irect.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/rect.rs /Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/urect.rs
+
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/lib.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/cubic_splines.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/ray.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/mod.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/irect.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/rect.rs:
+/Users/jake/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bevy_math-0.11.3/src/rects/urect.rs:

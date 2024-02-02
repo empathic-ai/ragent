@@ -9,7 +9,6 @@ edition = "2021"
 proc-macro = true
 
 [dependencies]
-#ragent_core = { git = "https://github.com/empathic-ai/ragent_core.git" }
 ragent_core = { path = "../ragent_core" }
 syn = { version = "2.0.39", features = ["full"] }
 quote = "1.0.33"

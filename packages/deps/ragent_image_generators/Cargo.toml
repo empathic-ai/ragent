@@ -1,5 +1,5 @@
 [package]
-name = "image-generator"
+name = "ragent_image_generators"
 version = "0.5.1"
 authors = []
 edition = "2021"
