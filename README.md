@@ -36,6 +36,7 @@ LLMs:
 - [ChatGPT](https://openai.com/blog/chatgpt)
 
 Speech synthesis:
+- [OpenAI](https://platform.openai.com/docs/guides/text-to-speech/)
 - [Microsoft Azure](https://azure.microsoft.com/en-us/products/cognitive-services/text-to-speech/)
 - [Play.ht](https://play.ht)
 - [Eleven Labs](https://elevenlabs.io/)
