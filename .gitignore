@@ -1,0 +1,14 @@
+/target
+/dist
+/pkg
+/Cargo.lock
+
+*.zip
+*.wasm
+*.ipk
+*.DS_Store
+
+/.vscode
+.vscode/
+
+rust-toolchain.toml
