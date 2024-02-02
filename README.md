@@ -36,6 +36,7 @@ LLMs:
 - [ChatGPT](https://openai.com/blog/chatgpt)
 
 Speech synthesis:
+- [OpenAI](https://platform.openai.com/docs/guides/text-to-speech/)
 - [Microsoft Azure](https://azure.microsoft.com/en-us/products/cognitive-services/text-to-speech/)
 - [Play.ht](https://play.ht)
 - [Eleven Labs](https://elevenlabs.io/)
@@ -44,3 +45,4 @@ Speech synthesis:
 
 - Add simple chat demo.
 - Add 2D simulation demo, including multiple social agents.
+- Add local integrations using [Candle](https://github.com/huggingface/candle) or something similar.
