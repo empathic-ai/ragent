@@ -1,0 +1,8 @@
+[build]
+target = "x86_64-apple-darwin"
+
+[target.'cfg(target_arch = "wasm32")']
+rustflags = ["--cfg=web_sys_unstable_apis"]
+
+[net]
+git-fetch-with-cli = true

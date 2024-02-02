@@ -1,12 +1,23 @@
-[package]
-name = "ragent"
-version = "0.1.0"
-edition = "2021"
-license = "MIT"
-description = "A framework for building LLM agents."
+[workspace]
+resolver = "2"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+members = [
+    "packages/deps/ragent_core",
+    "packages/deps/ragent_derive",
+    "packages/deps/ragent_image_generators",
+    "packages/deps/ragent_synthesizers",
+    "packages/deps/ragent_transcribers"
+]
 
-[dependencies]
-documented = "0.1.2"
-bevy = { version = "0.11.0", default-features = false, features = ["bevy_ui", "webgl2", "bevy_audio", "bevy_gizmos", "bevy_render", "bevy_pbr", "bevy_asset"] }
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug     = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[patch."https://github.com/empathic-ai/ragent_core.git"]
+ragent_core = { path = "./packages/deps/ragent_core" }
+
+[patch."https://github.com/empathic-ai/ragent_derive.git"]
+ragent_derive = { path = "./packages/deps/ragent_derive" }
