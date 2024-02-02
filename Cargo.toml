@@ -2,12 +2,12 @@
 resolver = "2"
 
 members = [
-    "packages/deps/ragent",
-    "packages/deps/ragent_core",
-    "packages/deps/ragent_derive",
-    "packages/deps/ragent_image_generators",
-    "packages/deps/ragent_synthesizers",
-    "packages/deps/ragent_transcribers"
+    "src/ragent",
+    "src/ragent_core",
+    "src/ragent_derive",
+    "src/ragent_image_generators",
+    "src/ragent_synthesizers",
+    "src/ragent_transcribers"
 ]
 
 [profile.release]
@@ -16,9 +16,3 @@ opt-level = "s"
 [profile.dev]
 debug     = true # Symbols are nice and they don't increase the size on Flash
 opt-level = "z"
-
-[patch."https://github.com/empathic-ai/ragent_core.git"]
-ragent_core = { path = "./packages/deps/ragent_core" }
-
-[patch."https://github.com/empathic-ai/ragent_derive.git"]
-ragent_derive = { path = "./packages/deps/ragent_derive" }
