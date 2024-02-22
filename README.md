@@ -10,7 +10,7 @@
 
 # Ragent
 
-**⚠️ Warning: Still in early development! ⚠️**
+**⚠️ Warning: Still in early development. ⚠️**
 
 An open-source Rust-based framework for agents--designed for real-time, multi-modal, multi-agent workflows for the web, desktop devices, mobile devices and embedded systems.
 
