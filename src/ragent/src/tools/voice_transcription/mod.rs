@@ -1,5 +1,8 @@
 #[cfg(not(target_arch = "wasm32"))]
 pub mod deepgram_transcriber;
+#[cfg(not(target_arch = "wasm32"))]
+pub use deepgram_transcriber::*;
+
 use std::error::Error;
 use bytes::Bytes;
 use crossbeam::channel::RecvError;
@@ -20,8 +23,6 @@ pub type transcriber_receiver = Receiver<String>;
 pub fn channel() -> (Sender<Bytes>, Receiver<Bytes>) {
     broadcast::channel(16)
 }
-
-pub use deepgram_transcriber::*;
 
 #[async_trait]
 pub trait Transcriber: Send + Sync {
