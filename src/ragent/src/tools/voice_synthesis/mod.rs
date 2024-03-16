@@ -12,6 +12,8 @@ pub mod eleven_labs;
 #[cfg(not(target_arch = "wasm32"))]
 pub mod azure_tts;
 
+pub mod coqui_synthesizer;
+
 use async_trait::async_trait;
 
 pub struct SynthesisResult {
