@@ -3,6 +3,9 @@ pub mod deepgram_transcriber;
 #[cfg(not(target_arch = "wasm32"))]
 pub use deepgram_transcriber::*;
 
+pub mod whisper_transcriber;
+pub use whisper_transcriber::*;
+
 use std::error::Error;
 use bytes::Bytes;
 use crossbeam::channel::RecvError;

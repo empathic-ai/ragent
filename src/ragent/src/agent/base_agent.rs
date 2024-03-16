@@ -75,7 +75,7 @@ impl BaseAgent {
         let agent_token = CancellationToken::new();
         let _agent_token = agent_token.clone();
         
-        let mut transcriber = DeepgramTranscriber::new_from_env();
+        let mut transcriber = WhisperTranscriber::new();
 
         let (transcriber_input_tx, transcriber_input_rx) = voice_transcription::channel();
 
