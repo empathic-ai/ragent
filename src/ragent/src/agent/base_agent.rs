@@ -112,7 +112,7 @@ impl BaseAgent {
         let _self = Self {
             synthesizer: None,
             transcriber: None,
-            chat_completer: Box::new(chat_gpt::ChatGPT::new_from_env()),
+            chat_completer: Box::new(llama::Llama::new()),
             messages: messages,
             functions: functions,
             output_tx: output_tx.clone(),

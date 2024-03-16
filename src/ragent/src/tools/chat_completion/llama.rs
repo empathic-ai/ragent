@@ -1,10 +1,24 @@
 use crate::prelude::*;
-use std::*;
+use std::{pin::Pin, *};
 use futures::Stream;
 use futures_util::{StreamExt, stream};
 use anyhow::*;
+use async_trait::async_trait;
 
 pub struct Llama {
+}
+
+impl Llama {
+    pub fn new() -> Self {
+        Self { }
+    }
+}
+
+#[async_trait]
+impl ChatCompleter for Llama {
+    async fn get_response(&self, messages: Vec<super::ChatCompletionMessage>, task_configs: Vec<TaskConfig>) -> Result<Pin<Box<dyn Stream<Item = Result<super::ChatCompletionResponse>> + Send>>> {
+        todo!();
+    }
 }
 
 /* 
