@@ -40,7 +40,7 @@ async-trait = "0.1.75"
 crossbeam = "0.8.2"
 cpal = "0.15.2"
 aura-api-helper = { git = "https://github.com/empathic-ai/aura-api-helper.git" }
-anthropic = { git = "https://github.com/Catchawink/anthropic-rs.git" }
+anthropic = { git = "https://github.com/Catchawink/anthropic-rs.git", default-features = false }
 tokio-stream = "0.1.14"
 
 [target.'cfg(not(target_arch = "xtensa"))'.dependencies]
