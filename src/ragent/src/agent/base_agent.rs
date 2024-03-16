@@ -1,5 +1,5 @@
 use async_channel::{Sender, Receiver};
-use base_agent::coqui_synthesizer::CoquiSynthesizer;
+use base_agent::{coqui_synthesizer::CoquiSynthesizer, piper_synthesizer::PiperSynthesizer};
 use bytes::Bytes;
 use futures_util::lock::Mutex;
 
@@ -175,7 +175,7 @@ impl BaseAgent {
         let _agent_token = agent_token.clone();
 
         tokio::task::spawn(async move {
-            let synthesizer = Arc::new(CoquiSynthesizer::new());
+            let synthesizer = Arc::new(PiperSynthesizer::new());
 
             while let Ok(ev) = output_rx.recv().await {
 
