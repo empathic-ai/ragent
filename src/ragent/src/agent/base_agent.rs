@@ -1,15 +1,9 @@
 use async_channel::{Sender, Receiver};
 use bytes::Bytes;
 use futures_util::lock::Mutex;
-use openai_api_rs::v1::api::Client;
-use openai_api_rs::v1::chat_completion::*;
-use openai_api_rs::v1::fine_tune::ModelDetails;
-//use synthesizer::Synthesizer;
+
 use async_trait::async_trait;
-//use synthesizer::azure_tts::AzureSynthesizer;
-//use synthesizer::eleven_labs::ElevenLabsSynthesizer;
-//use transcriber::Transcriber;
-//use transcriber::deepgram_transcriber::DeepgramTranscriber;
+
 use uuid::Uuid;
 use crate::prelude::*;
 use std::*;
@@ -21,11 +15,10 @@ use anyhow::{Result, anyhow};
 use common::prelude::*;
 use empathic_audio::*;
 
-//#[derive(Default)]
-pub struct ChatGPTAgent {
+pub struct BaseAgent {
     pub transcriber: Option<Box<dyn Transcriber>>,
     pub synthesizer: Option<Box<dyn Synthesizer>>,
-    pub model_name: String,
+    pub chat_completer: Box<dyn ChatCompleter>,
     pub messages: Vec<ChatCompletionMessage>,
     pub functions: Vec<Function>,
     pub output_tx: tokio::sync::broadcast::Sender<UserEvent>,
@@ -39,27 +32,14 @@ pub struct ChatGPTAgent {
     pub agent_token: CancellationToken
 }
 
-impl ChatGPTAgent {
-
-    pub fn new(config: AgentConfig) -> ChatGPTAgent {
-        
+impl BaseAgent {
+    pub fn new(config: AgentConfig) -> Self {
+            
         let system_prompt = config.description.clone();
-
-        //GPT3_5_TURBO
-        //GPT4_0613
-        let model_name = GPT4_0613.to_string();// GPT4_0613.to_string();
 
         let mut functions = Vec::<Function>::new();
 
-        let is_function_model = false;//Self::is_function_model(model_name.clone());
-
         let task_configs: Vec<TaskConfig> = config.task_configs_by_name.values().map(|x|x.to_owned()).collect();
-        let system_prompt = if is_function_model {
-            system_prompt.clone()
-        } else {
-            let task_prompt = super::get_function_prompt(task_configs.clone());
-            task_prompt + "\n\n# This is your role:\n\n" + &system_prompt.clone()
-        };
 
         //println!("Initializing agent with system prompt:\n\n{}\n\n", system_prompt.clone());
 
@@ -72,35 +52,6 @@ impl ChatGPTAgent {
             function_call: None
         };
         messages.push(message);
-
-        if is_function_model {
-
-            for config in task_configs {
-                let mut properties = HashMap::<String, Box<JSONSchemaDefine>>::new();
-
-                for parameter in config.parameters {
-                    properties.insert(parameter.name, Box::new(JSONSchemaDefine {
-                        schema_type: Some(JSONSchemaType::String),
-                        description: Some(parameter.description),
-                        enum_values: None,
-                        properties: None,
-                        required: None,
-                        items: None,
-                    }));
-                }
-
-                let required = properties.keys().clone().map(|x| x.to_owned()).collect();
-                functions.push(Function {
-                    name: config.name.clone(),
-                    description: Some(config.description.clone()),
-                    parameters: FunctionParameters {
-                        schema_type: JSONSchemaType::Object,
-                        properties: Some(properties),
-                        required: Some(required),
-                    }
-                });
-            }
-        }
 
         let (input_tx, input_rx) = async_channel::unbounded::<UserEvent>();
         let (output_tx, mut output_rx) = tokio::sync::broadcast::channel::<UserEvent>(32);
@@ -126,7 +77,7 @@ impl ChatGPTAgent {
         
         let mut transcriber = DeepgramTranscriber::new_from_env();
 
-        let (transcriber_input_tx, transcriber_input_rx) = ragent_transcribers::channel();
+        let (transcriber_input_tx, transcriber_input_rx) = voice_transcription::channel();
 
         let _input_tx = input_tx.clone();
         let task = tokio::task::spawn(async move {
@@ -158,10 +109,10 @@ impl ChatGPTAgent {
 
         let asset_cache = Arc::new(Mutex::new(AssetCache::new()));
 
-        let _self = ChatGPTAgent {
+        let _self = Self {
             synthesizer: None,
             transcriber: None,
-            model_name: model_name.clone(),
+            chat_completer: Box::new(chat_gpt::ChatGPT::new_from_env()),
             messages: messages,
             functions: functions,
             output_tx: output_tx.clone(),
@@ -274,17 +225,10 @@ impl ChatGPTAgent {
 
         _self
     }
-
-    fn is_function_model(mode_name: String) -> bool {
-        match mode_name.as_str() {
-            GPT4_1106_PREVIEW => true,
-            _ => false
-        }
-    }
 }
 
 #[async_trait]
-impl Agent for ChatGPTAgent {
+impl Agent for BaseAgent {
     async fn stop(&mut self) -> Result<()> {
         self.agent_token.cancel();
         Ok(())
@@ -315,14 +259,12 @@ impl Agent for ChatGPTAgent {
     }
 
     async fn get_response(&mut self, token: CancellationToken) -> Result<()> {
-        let functions = self.functions.clone();
-        let chat_completion_request: ChatCompletionRequest = ChatCompletionRequest::new(self.model_name.clone(), self.messages.to_vec()).stream(true);
-        
-        let client = Client::new(env::var("OPENAI_API_KEY").unwrap().to_string());
-        let mut stream = client.chat_completion_stream(chat_completion_request.clone()).await.expect("Failed to get chat completion stream.");
+
+        let mut stream = self.chat_completer.get_response(self.messages.to_vec(), self.config.task_configs_by_name.values().cloned().collect()).await?;
 
         let mut text_tasks = "".to_string();
         let mut full_response = "".to_string();
+
         while let Some(result) = stream.next().await {
             if token.is_cancelled() {
                 return Ok(());
@@ -330,15 +272,14 @@ impl Agent for ChatGPTAgent {
 
             match result {
                 Ok(x) => {
-                    if let Some(content) = x.choices[0].delta.content.clone() {
-                        text_tasks += &content.clone();
-                        full_response += &content;
-                        println!("{}", full_response);
+                    let content = x.completion;
+                    text_tasks += &content.clone();
+                    full_response += &content;
+                    println!("{}", full_response);
 
-                        text_tasks = self.output_tasks(text_tasks, false, token.clone()).await;
-                        if token.is_cancelled() {
-                            return Ok(());
-                        }
+                    text_tasks = self.output_tasks(text_tasks, false, token.clone()).await;
+                    if token.is_cancelled() {
+                        return Ok(());
                     }
                     
                     /*

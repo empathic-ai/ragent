@@ -25,12 +25,12 @@ pub trait Synthesizer: Send + Sync {
 
 pub mod prelude {
     #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::openai_tts::*;
+    pub use super::openai_tts::*;
     #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::play_ht::*;
+    pub use super::play_ht::*;
     #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::eleven_labs::*;
+    pub use super::eleven_labs::*;
     #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::azure_tts::*;
-    pub use crate::*;
+    pub use super::azure_tts::*;
+    pub use super::*;
 }

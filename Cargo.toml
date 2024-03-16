@@ -2,12 +2,9 @@
 resolver = "2"
 
 members = [
-    "src/ragent",
     "src/ragent_core",
     "src/ragent_derive",
-    "src/ragent_image_generators",
-    "src/ragent_synthesizers",
-    "src/ragent_transcribers"
+    "src/ragent"
 ]
 
 [profile.release]

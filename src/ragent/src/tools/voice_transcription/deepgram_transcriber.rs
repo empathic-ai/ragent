@@ -20,7 +20,7 @@ use deepgram::{Deepgram, DeepgramError};
 use deepgram::transcription::live::StreamResponse::{TranscriptResponse, TerminalResponse};
 use std::error::Error;
 
-use crate::{result, Transcriber};
+use super::{result, Transcriber};
 use anyhow::Result;
 use tokio::sync::broadcast::{self, Sender, Receiver};
 

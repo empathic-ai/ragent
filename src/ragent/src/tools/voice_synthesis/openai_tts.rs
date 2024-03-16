@@ -2,7 +2,7 @@ use reqwest::header::{HeaderMap, HeaderValue};
 use tokio::sync::Semaphore;
 use std::{error::Error, collections::HashMap, env};
 use aura_api_helper::*;
-use crate::*;
+use super::*;
 use lazy_static::lazy_static;
 use openai_api_rs::v1::{*, api::Client, image::ImageGenerationRequest, audio::AudioSpeechRequest};
 use futures_util::{Stream, FutureExt, StreamExt, stream, TryStreamExt};

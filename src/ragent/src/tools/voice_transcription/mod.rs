@@ -1,4 +1,3 @@
-#![allow(warnings)]
 #[cfg(not(target_arch = "wasm32"))]
 pub mod deepgram_transcriber;
 use std::error::Error;
@@ -22,11 +21,7 @@ pub fn channel() -> (Sender<Bytes>, Receiver<Bytes>) {
     broadcast::channel(16)
 }
 
-pub mod prelude {
-    pub use crate::*;
-    #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::deepgram_transcriber::*;
-}
+pub use deepgram_transcriber::*;
 
 #[async_trait]
 pub trait Transcriber: Send + Sync {

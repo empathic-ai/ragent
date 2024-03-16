@@ -1,4 +1,4 @@
-use ragent_transcribers::Transcriber;
+use crate::tools::voice_transcription::Transcriber;
 use uuid::Uuid;
 
 pub struct UserAgent {

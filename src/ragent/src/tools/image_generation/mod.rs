@@ -16,6 +16,6 @@ pub trait ImageGenerator {
 
 pub mod prelude {
     #[cfg(not(target_arch = "wasm32"))]
-    pub use crate::dalle2::*;
-    pub use crate::*;
+    pub use super::dalle2::*;
+    pub use super::*;
 }

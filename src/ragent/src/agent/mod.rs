@@ -29,16 +29,12 @@ use anyhow::anyhow;
 
 use async_trait::async_trait;
 
-#[cfg(not(target_arch = "wasm32"))]
-pub mod chatgpt_agent;
-#[cfg(not(target_arch = "wasm32"))]
-pub use chatgpt_agent::*;
+pub mod base_agent;
+pub use base_agent::*;
 
 pub mod user_agent;
 pub use user_agent::*;
 
-pub mod llama_agent;
-pub use llama_agent::*;
 //use crate::{types::*, NEW_IMAGE, RESPONSE_ERROR};
 
 pub const MESSAGE: &str = "MESSAGE";

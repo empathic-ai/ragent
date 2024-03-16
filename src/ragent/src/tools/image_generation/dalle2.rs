@@ -1,7 +1,7 @@
 use std::env;
 use anyhow::Result;
 use openai_api_rs::v1::{*, api::Client, image::ImageGenerationRequest};
-use crate::*;
+use super::*;
 
 #[derive(Debug, Default)]
 pub struct Dalle2 {
