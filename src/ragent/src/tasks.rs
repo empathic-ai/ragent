@@ -105,7 +105,7 @@ fn create_task<T>(name: String, args: Vec<String>) -> Result<Dynamic> where T: T
 //}
 
 pub fn get_event_name<T>() -> String where T: Task {
-    let type_name = T::type_info().type_name();
+    let type_name = T::type_info().type_path();
     get_event_name_from_type_name(type_name)
 }
 
@@ -240,7 +240,7 @@ impl Dynamic {
         }
     }
     pub fn cast<T>(self) -> Option<T> where T: Reflect + FromReflect + Typed {
-        if self.value.type_name() == T::type_info().type_name() {
+        if self.value.reflect_type_path() == T::type_info().type_path() {
             T::from_reflect(self.value.as_reflect())
         } else {
             None
@@ -278,7 +278,7 @@ impl UserEvent {
     }
 
     pub fn to_description(&self) -> String {
-        let ev_name = get_event_name_from_type_name(self.args.value.type_name());
+        let ev_name = get_event_name_from_type_name(self.args.value.reflect_type_path());
 
         let mut field_values = Vec::<Option::<String>>::new();
 

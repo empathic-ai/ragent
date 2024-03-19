@@ -460,7 +460,7 @@ pub trait Agent: Send + Sync { //where Self: Send + Sync + Sized + 'static
         //let _self = Arc::new(self);
         //let _self = Arc::clone(&self);
 
-        if !self.get_config().task_configs_by_name.contains_key(&get_event_name_from_type_name(ev.args.value.type_name())) {
+        if !self.get_config().task_configs_by_name.contains_key(&get_event_name_from_type_name(ev.args.value.reflect_type_path())) {
             return Ok(());
         }
 
