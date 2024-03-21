@@ -1,0 +1,3 @@
+[submodule "src/ragent"]
+	path = src/ragent
+	url = https://github.com/empathic-ai/ragent-base.git
