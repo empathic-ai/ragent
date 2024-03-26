@@ -4802,7 +4802,7 @@ dependencies = [
  "lazy_static",
  "nameof",
  "openai-api-rs",
- "ragent_core 0.1.0 (git+https://github.com/empathic-ai/ragent.git)",
+ "ragent_core",
  "ragent_derive",
  "regex",
  "reqwest",
@@ -4826,22 +4826,13 @@ dependencies = [
 ]
 
 [[package]]
-name = "ragent_core"
-version = "0.1.0"
-source = "git+https://github.com/empathic-ai/ragent.git#44000e8134040b6054a0c4c5944f1b80f6c72c19"
-dependencies = [
- "bevy 0.13.1",
- "documented",
-]
-
-[[package]]
 name = "ragent_derive"
 version = "0.1.0"
 dependencies = [
  "bevy 0.13.1",
  "derive-syn-parse",
  "quote",
- "ragent_core 0.1.0",
+ "ragent_core",
  "syn 2.0.52",
 ]
 

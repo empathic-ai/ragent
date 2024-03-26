@@ -19,3 +19,6 @@ ragent_derive = { path = "./src/ragent_derive" }
 
 [patch."https://github.com/empathic-ai/ragent-base.git"]
 ragent = { path = "./src/ragent" }
+
+[patch."https://github.com/empathic-ai/ragent.git"]
+ragent_core = { path = "./src/ragent_core" }
