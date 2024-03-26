@@ -13,3 +13,9 @@ opt-level = "s"
 [profile.dev]
 debug     = true # Symbols are nice and they don't increase the size on Flash
 opt-level = "z"
+
+[patch."https://github.com/empathic-ai/ragent-derive.git"]
+ragent_derive = { path = "./src/ragent_derive" }
+
+[patch."https://github.com/empathic-ai/ragent.git"]
+ragent = { path = "./src/ragent" }
