@@ -9,4 +9,4 @@ description = "A framework for building LLM agents."
 
 [dependencies]
 documented = "0.1.2"
-bevy = { version = "0.13.0", default-features = false, features = ["bevy_ui", "bevy_asset"] }
+bevy = { version = "0.13.0", default-features = false }
