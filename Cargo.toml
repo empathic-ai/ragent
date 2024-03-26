@@ -17,5 +17,5 @@ opt-level = "z"
 [patch."https://github.com/empathic-ai/ragent-derive.git"]
 ragent_derive = { path = "./src/ragent_derive" }
 
-[patch."https://github.com/empathic-ai/ragent.git"]
+[patch."https://github.com/empathic-ai/ragent-base.git"]
 ragent = { path = "./src/ragent" }
