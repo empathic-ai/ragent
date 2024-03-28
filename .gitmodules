@@ -3,4 +3,7 @@
 	url = https://github.com/empathic-ai/ragent-base.git
 [submodule "src/ragent_derive"]
 	path = src/ragent_derive
-	url = https://github.com/empathic-ai/ragent_derive.git
+	url = https://github.com/empathic-ai/ragent-derive.git
+[submodule "src/ragent_core"]
+	path = src/ragent_core
+	url = https://github.com/empathic-ai/ragent-core.git
